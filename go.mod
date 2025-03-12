@@ -1,3 +1,3 @@
-module github.com/art3mis/deviceid
+module github.com/theblitlabs/deviceid
 
 go 1.21
