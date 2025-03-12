@@ -13,7 +13,7 @@ A Go package for generating and managing unique device identifiers. This package
 ## Installation
 
 ```bash
-go get github.com/art3mis/deviceid
+go get github.com/theblitlabs/deviceid
 ```
 
 ## Usage
@@ -24,20 +24,20 @@ package main
 import (
     "fmt"
     "log"
-    
-    "github.com/art3mis/deviceid"
+
+    "github.com/theblitlabs/deviceid"
 )
 
 func main() {
     // Create a new manager with default configuration
     manager := deviceid.NewManager(deviceid.Config{})
-    
+
     // Get or generate a device ID
     id, err := manager.VerifyDeviceID()
     if err != nil {
         log.Fatalf("Failed to get device ID: %v", err)
     }
-    
+
     fmt.Printf("Device ID: %s\n", id)
 }
 ```
@@ -59,6 +59,7 @@ manager := deviceid.NewManager(config)
 ### Types
 
 #### `Config`
+
 ```go
 type Config struct {
     StorageDir  string // Directory where the device ID file will be stored
@@ -67,6 +68,7 @@ type Config struct {
 ```
 
 #### `Manager`
+
 ```go
 type Manager struct {}
 ```
@@ -74,18 +76,23 @@ type Manager struct {}
 ### Functions
 
 #### `NewManager(config Config) *Manager`
+
 Creates a new device ID manager with the given configuration.
 
 #### `(m *Manager) GenerateDeviceID() (string, error)`
+
 Generates a new device ID based on system information.
 
 #### `(m *Manager) SaveDeviceID(deviceID string) error`
+
 Saves the device ID to the configured location.
 
 #### `(m *Manager) VerifyDeviceID() (string, error)`
+
 Verifies the existing device ID or generates a new one if needed.
 
 #### `IsValidSHA256(s string) bool`
+
 Checks if a string is a valid SHA-256 hash.
 
 ## License
