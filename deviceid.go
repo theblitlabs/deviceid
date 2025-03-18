@@ -99,11 +99,11 @@ func (m *Manager) SaveDeviceID(deviceID string) error {
 
 	// Ensure directory exists
 	dir := filepath.Dir(path)
-	if err := os.MkdirAll(dir, 0700); err != nil {
+	if err := os.MkdirAll(dir, 0o700); err != nil {
 		return fmt.Errorf("failed to create directory: %w", err)
 	}
 
-	if err := os.WriteFile(path, []byte(deviceID), 0600); err != nil {
+	if err := os.WriteFile(path, []byte(deviceID), 0o600); err != nil {
 		return fmt.Errorf("failed to write device ID: %w", err)
 	}
 
